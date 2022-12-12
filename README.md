@@ -14,6 +14,8 @@ npm run test
 
 #### synpress
 Synpress:  e2e testing framework based on Cypress.io and playwright with support for metamask.
+Cypress: Control dapp pages
+laywright:Control metamask pages
 
 ##### demo
 
