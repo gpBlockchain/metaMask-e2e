@@ -1,0 +1,33 @@
+{
+  "name": "dappeteer-metamask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chainsafe/dappeteer": "4.0.0-rc.1",
+    "@types/chai-as-promised": "^7.1.5",
+    "chai-as-promised": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.3.4",
+    "mocha": "7.2.0",
+    "puppeteer": "14.0.0",
+    "playwright": "^1.27.1",
+    "playwright-core": "^1.27.1",
+    "ts-node": "10.8.1",
+    "typescript": "^4.7"
+  },
+  "peerDependencies": {
+    "puppeteer": ">13"
+  }
+}

@@ -1,0 +1,9 @@
+cypress/downloads
+cypress/screenshots
+cypress/videos
+dappeteer-metamask/node_modules
+synpress-metamask/node_modules
+.DS_Store
+synpress-metamask/.env
+*reports
+*.idea/
