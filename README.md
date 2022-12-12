@@ -1,5 +1,10 @@
 ## MetaMask e2e
 
+#### e2e test framework
+- Puppeteer
+- Playwright
+- Cypress
+
 #### dappeteer
 
 dappeteer: E2E testing for dApps using (Puppeteer or playwright )+ MetaMask
