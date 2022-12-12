@@ -8,7 +8,7 @@
     "typescript": "^4.8.3"
   },
   "scripts": {
-    "synpress:run1": "synpress run --configFile cypress.config.ts",
+    "test": "synpress run --configFile cypress.config.ts",
     "synpress:run": "DEBUG=synpress:* synpress run --configFile cypress.config.ts",
     "synpress:run:demo": "synpress run --configFile cypress.config.ts --spec ./cypress/e2e/demoTests.cy.ts"
   }
