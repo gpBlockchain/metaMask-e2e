@@ -6,25 +6,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  checks:
-    name: Checks
+  npm-install-1:
+    strategy:
+      fail-fast: false
+      matrix:
+        net: ['testnet_v1']
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          cache: yarn
-          node-version: "16"
-
-      - name: Install dependencies
-        run: cd synpress-metamask && yarn
+          node-version: '16'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Node Cache
+        uses: actions/cache@v2
+        id: npm-and-yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            ~/.npm
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('/home/runner/work/**/package-lock.json', '/home/runner/work/**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
 
       - name: Tests
         id: tests
-        run: xvfb-run --auto-servernum yarn test
-
+        run: |
+          npm i
+          xvfb-run --auto-servernum npm run test
