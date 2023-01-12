@@ -1,0 +1,30 @@
+name: ci
+
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          node-version: "16"
+
+      - name: Install dependencies
+        run: cd synpress-metamask && npm i
+
+      - name: Tests
+        id: tests
+        run: xvfb-run --auto-servernum npm run test
+
