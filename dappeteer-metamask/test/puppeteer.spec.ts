@@ -42,6 +42,7 @@ describe('puppeteer demo', () => {
         let res = await testPage.$eval("#getAccountsResult", (e) => e.innerText)
         console.log("res:",res)
         expect(res).to.be.equal("0x7e4abd63a7c8314cc28d388303472353d884f292");
+
         // for (let i = 0; i < 100; i++) {
         //     await testPage.waitForSelector("#getAccountsResult",{timeout: 1000})
         //     const data = await testPage.evaluate(
@@ -65,3 +66,6 @@ describe('puppeteer demo', () => {
         await browser.close();
     });
 });
+export async function Sleep(timeout: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+}

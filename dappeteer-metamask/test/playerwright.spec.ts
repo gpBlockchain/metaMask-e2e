@@ -28,6 +28,7 @@ describe('playwright demo', () => {
             // password: 'password1234',
         });
         testPage = await browser.newPage();
+        console.log("--- metamask init successful ----")
         await testPage.goto('https://metamask.github.io/test-dapp/',{
                 waitUntil: "networkidle",
             }
@@ -35,6 +36,7 @@ describe('playwright demo', () => {
         await clickOnButton(testPage, "Connect");
         await metamask.approve();
     });
+
     it("click show eth_accounts ,connected address  should display", async () => {
         await clickOnButton(testPage, "eth_accounts");
         await testPage.waitForFunction(
