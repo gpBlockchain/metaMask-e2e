@@ -35,6 +35,6 @@ jobs:
       - name: Tests
         id: tests
         run: |
-          cd synpress-metamask
+          cd dappeteer-metamask
           npm i
           xvfb-run --auto-servernum npm run test
