@@ -10,8 +10,8 @@ import {browser} from "./playerwright.spec";
 chaiUse(chaiAsPromised);
 
 
-describe('light', function () {
-    it('demo', async () => {
+describe('light_deposit', function () {
+    it('deposit', async () => {
 
         let browser = await dappeteer.launch({
             automation: "playwright",
@@ -51,10 +51,12 @@ describe('light', function () {
         await metamask.sign()
         await page1.bringToFront()
         await page1.getByText("Open In Explorer").click()
-    });
-
-    after(async () => {
-        // close browser
+        await Sleep(1000)
         await browser.close();
     });
+
+    // after(async () => {
+    //     // close browser
+    //     await browser.close();
+    // });
 });

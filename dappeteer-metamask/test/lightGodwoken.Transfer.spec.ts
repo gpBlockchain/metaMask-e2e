@@ -60,10 +60,13 @@ describe('light_L1_Transfer', function () {
         await metamask.sign()
         // await page1.bringToFront()
         // await page1.getByText("Open In Explorer").click()
-    });
+        await Sleep(1000)
 
-    after(async () => {
-        // close browser
         await browser.close();
     });
+
+    // after(async () => {
+    //     // close browser
+    //     await browser.close();
+    // });
 });

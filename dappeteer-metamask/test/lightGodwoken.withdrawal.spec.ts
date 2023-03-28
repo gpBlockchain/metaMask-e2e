@@ -62,10 +62,12 @@ describe('light_withdrawal', function () {
         // await metamask.sign()
         // await page1.bringToFront()
         // await page1.getByText("Open In Explorer").click()
-    });
-
-    after(async () => {
-        // close browser
+        await Sleep(1000)
         await browser.close();
     });
+
+    // after(async () => {
+    //     // close browser
+    //     await browser.close();
+    // });
 });
